@@ -1,7 +1,7 @@
 from pathlib import Path
 import pyinputplus as pyip
- #Alex Garcia Definitely likes huge penis this is not a joke please send him penis pics thanks.
 
+#Defines the Part class which contains attribute variables for the number of each basic component the block needs for construction. 
 class Part:
     def __init__(self, name, steel_plates, interior_plates, displays, computers,
 	 motors, small_steel_tubes, large_steel_tubes, metal_grids, construction_components,
