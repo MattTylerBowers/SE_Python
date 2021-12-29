@@ -1,0 +1,735 @@
+from pathlib import Path
+import pyinputplus as pyip
+
+
+class Part:
+    def __init__(self, name, steel_plates, interior_plates, displays, computers,
+	 motors, small_steel_tubes, large_steel_tubes, metal_grids, construction_components,
+	 super_conducters, power_cells, detector_components, gravity_components, bulletproof_glass,
+	 girders,medical_components, solar_cells):
+    
+        self.name = name
+        self.steel_plates = steel_plates
+        self.interior_plates = interior_plates
+        self.displays = displays
+        self.computers = computers
+        self.motors = motors
+        self.small_steel_tubes = small_steel_tubes
+        self.large_steel_tubes = large_steel_tubes
+        self.metal_grids = metal_grids
+        self.construction_components = construction_components
+        self.super_conducters = super_conducters
+        self.power_cells = power_cells
+        self.detector_components = detector_components
+        self.gravity_components = gravity_components
+        self.bulletproof_glass = bulletproof_glass
+        self.girders = girders
+        self.medical_components = medical_components
+        self.solar_cells = solar_cells
+    
+    def printFunc(self):
+        print(self.name)
+        print('----------------------------------')
+        print(self.steel_plates, "steel plates")
+        print(self.interior_plates, "interior plates")
+        print(self.displays, "displays")
+        print(self.computers,"computers")
+        print(self.motors, "motors")
+        print(self.small_steel_tubes, "small steel tubes")
+        print(self.large_steel_tubes, "large steel tubes")
+        print(self.metal_grids, "metal grids")
+        print(self.construction_components,"construction components")
+        print(self.super_conducters, "super conductors")
+        print(self.power_cells, "power cells")
+        print(self.detector_components, "detector components")
+        print(self.gravity_components, "gravity components")
+        print(self.bulletproof_glass,"bulletproof glass")
+        print(self.girders, "girders")
+        print(self.medical_components,"medical components")
+        print(self.solar_cells, "solar cells")
+        
+        
+#this part is so that i could test my class        
+x = Part('tits',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+x.steel_plates = 5
+x.power_cells = 3236
+#x.printFunc()
+
+
+block_list = ["Light Armor Blocks","Large Hydrogen Thrusters", "Small Hydrogen Thrusters",
+	"Large Cargo Containers", "Hydrogen Tanks", "Jump Drives", "H2O2 Generators",
+	"Refinerys", "Assemblers", "Drills", "Pistons", "Piston Parts", "Rotors", "Rotor Heads",
+	"Conveyor Tubes", "Yield Modules", "Speed Modules", "Industrial Cockpits", "Gyroscopes",
+	"Conveyor Junctions", "SpotLights", "O2 Tanks", "O2 Farms", "Solar Panels", "Landing Gears",
+	"Gun Turrets", "Batteries", "Medical Bays", "Connectors"] #29
+
+sefile = open('C:\\Users\\garci\\setext.txt', 'r')
+fileContents = sefile.readlines()
+blocks = int(fileContents[0].rstrip("\n"))
+fileContents.pop(0)
+
+#removing the \n on the readlines()
+for x in range(500):
+    fileContents[x] = fileContents[x].rstrip("\n")
+
+
+light_armor_block = Part('Light Armor Block',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+light_armor_block.steel_plates = fileContents[0]
+light_armor_block.interior_plates = fileContents[1]
+light_armor_block.displays = fileContents[2]
+light_armor_block.computers = fileContents[3]
+light_armor_block.motors = fileContents[4]
+light_armor_block.small_steel_tubes = fileContents[5]
+light_armor_block.large_steel_tubes = fileContents[6]
+light_armor_block.metal_grids = fileContents[7]
+light_armor_block.construction_components = fileContents[8]
+light_armor_block.super_conducters = fileContents[9]
+light_armor_block.power_cells = fileContents[10]
+light_armor_block.detector_components = fileContents[11]
+light_armor_block.gravity_components = fileContents[12]
+light_armor_block.bulletproof_glass = fileContents[13]
+light_armor_block.girders = fileContents[14]
+light_armor_block.medical_components = fileContents[15]
+light_armor_block.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+large_hydrogen_thruster = Part('Large Hydrogen Thruster',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+large_hydrogen_thruster.steel_plates = fileContents[0]
+large_hydrogen_thruster.interior_plates = fileContents[1]
+large_hydrogen_thruster.displays = fileContents[2]
+large_hydrogen_thruster.computers = fileContents[3]
+large_hydrogen_thruster.motors = fileContents[4]
+large_hydrogen_thruster.small_steel_tubes = fileContents[5]
+large_hydrogen_thruster.large_steel_tubes = fileContents[6]
+large_hydrogen_thruster.metal_grids = fileContents[7]
+large_hydrogen_thruster.construction_components = fileContents[8]
+large_hydrogen_thruster.super_conducters = fileContents[9]
+large_hydrogen_thruster.power_cells = fileContents[10]
+large_hydrogen_thruster.detector_components = fileContents[11]
+large_hydrogen_thruster.gravity_components = fileContents[12]
+large_hydrogen_thruster.bulletproof_glass = fileContents[13]
+large_hydrogen_thruster.girders = fileContents[14]
+large_hydrogen_thruster.medical_components = fileContents[15]
+large_hydrogen_thruster.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+small_hydrogen_thruster = Part('Small Hydrogen Thruster',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+small_hydrogen_thruster.steel_plates = fileContents[0]
+small_hydrogen_thruster.interior_plates = fileContents[1]
+small_hydrogen_thruster.displays = fileContents[2]
+small_hydrogen_thruster.computers = fileContents[3]
+small_hydrogen_thruster.motors = fileContents[4]
+small_hydrogen_thruster.small_steel_tubes = fileContents[5]
+small_hydrogen_thruster.large_steel_tubes = fileContents[6]
+small_hydrogen_thruster.metal_grids = fileContents[7]
+small_hydrogen_thruster.construction_components = fileContents[8]
+small_hydrogen_thruster.super_conducters = fileContents[9]
+small_hydrogen_thruster.power_cells = fileContents[10]
+small_hydrogen_thruster.detector_components = fileContents[11]
+small_hydrogen_thruster.gravity_components = fileContents[12]
+small_hydrogen_thruster.bulletproof_glass = fileContents[13]
+small_hydrogen_thruster.girders = fileContents[14]
+small_hydrogen_thruster.medical_components = fileContents[15]
+small_hydrogen_thruster.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+large_cargo_container = Part('Large Hydrogen Thruster',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+large_cargo_container.steel_plates = fileContents[0]
+large_cargo_container.interior_plates = fileContents[1]
+large_cargo_container.displays = fileContents[2]
+large_cargo_container.computers = fileContents[3]
+large_cargo_container.motors = fileContents[4]
+large_cargo_container.small_steel_tubes = fileContents[5]
+large_cargo_container.large_steel_tubes = fileContents[6]
+large_cargo_container.metal_grids = fileContents[7]
+large_cargo_container.construction_components = fileContents[8]
+large_cargo_container.super_conducters = fileContents[9]
+large_cargo_container.power_cells = fileContents[10]
+large_cargo_container.detector_components = fileContents[11]
+large_cargo_container.gravity_components = fileContents[12]
+large_cargo_container.bulletproof_glass = fileContents[13]
+large_cargo_container.girders = fileContents[14]
+large_cargo_container.medical_components = fileContents[15]
+large_cargo_container.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+hydrogen_tank = Part('Hydrogen Tank',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+hydrogen_tank.steel_plates = fileContents[0]
+hydrogen_tank.interior_plates = fileContents[1]
+hydrogen_tank.displays = fileContents[2]
+hydrogen_tank.computers = fileContents[3]
+hydrogen_tank.motors = fileContents[4]
+hydrogen_tank.small_steel_tubes = fileContents[5]
+hydrogen_tank.large_steel_tubes = fileContents[6]
+hydrogen_tank.metal_grids = fileContents[7]
+hydrogen_tank.construction_components = fileContents[8]
+hydrogen_tank.super_conducters = fileContents[9]
+hydrogen_tank.power_cells = fileContents[10]
+hydrogen_tank.detector_components = fileContents[11]
+hydrogen_tank.gravity_components = fileContents[12]
+hydrogen_tank.bulletproof_glass = fileContents[13]
+hydrogen_tank.girders = fileContents[14]
+hydrogen_tank.medical_components = fileContents[15]
+hydrogen_tank.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+jump_drive = Part('Jump Drive',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+jump_drive.steel_plates = fileContents[0]
+jump_drive.interior_plates = fileContents[1]
+jump_drive.displays = fileContents[2]
+jump_drive.computers = fileContents[3]
+jump_drive.motors = fileContents[4]
+jump_drive.small_steel_tubes = fileContents[5]
+jump_drive.large_steel_tubes = fileContents[6]
+jump_drive.metal_grids = fileContents[7]
+jump_drive.construction_components = fileContents[8]
+jump_drive.super_conducters = fileContents[9]
+jump_drive.power_cells = fileContents[10]
+jump_drive.detector_components = fileContents[11]
+jump_drive.gravity_components = fileContents[12]
+jump_drive.bulletproof_glass = fileContents[13]
+jump_drive.girders = fileContents[14]
+jump_drive.medical_components = fileContents[15]
+jump_drive.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+h202_generator = Part('H2O2 Generator',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+h202_generator.steel_plates = fileContents[0]
+h202_generator.interior_plates = fileContents[1]
+h202_generator.displays = fileContents[2]
+h202_generator.computers = fileContents[3]
+h202_generator.motors = fileContents[4]
+h202_generator.small_steel_tubes = fileContents[5]
+h202_generator.large_steel_tubes = fileContents[6]
+h202_generator.metal_grids = fileContents[7]
+h202_generator.construction_components = fileContents[8]
+h202_generator.super_conducters = fileContents[9]
+h202_generator.power_cells = fileContents[10]
+h202_generator.detector_components = fileContents[11]
+h202_generator.gravity_components = fileContents[12]
+h202_generator.bulletproof_glass = fileContents[13]
+h202_generator.girders = fileContents[14]
+h202_generator.medical_components = fileContents[15]
+h202_generator.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+refinery = Part('Refinery',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+refinery.steel_plates = fileContents[0]
+refinery.interior_plates = fileContents[1]
+refinery.displays = fileContents[2]
+refinery.computers = fileContents[3]
+refinery.motors = fileContents[4]
+refinery.small_steel_tubes = fileContents[5]
+refinery.large_steel_tubes = fileContents[6]
+refinery.metal_grids = fileContents[7]
+refinery.construction_components = fileContents[8]
+refinery.super_conducters = fileContents[9]
+refinery.power_cells = fileContents[10]
+refinery.detector_components = fileContents[11]
+refinery.gravity_components = fileContents[12]
+refinery.bulletproof_glass = fileContents[13]
+refinery.girders = fileContents[14]
+refinery.medical_components = fileContents[15]
+refinery.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+assembler = Part('Assembler',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+assembler.steel_plates = fileContents[0]
+assembler.interior_plates = fileContents[1]
+assembler.displays = fileContents[2]
+assembler.computers = fileContents[3]
+assembler.motors = fileContents[4]
+assembler.small_steel_tubes = fileContents[5]
+assembler.large_steel_tubes = fileContents[6]
+assembler.metal_grids = fileContents[7]
+assembler.construction_components = fileContents[8]
+assembler.super_conducters = fileContents[9]
+assembler.power_cells = fileContents[10]
+assembler.detector_components = fileContents[11]
+assembler.gravity_components = fileContents[12]
+assembler.bulletproof_glass = fileContents[13]
+assembler.girders = fileContents[14]
+assembler.medical_components = fileContents[15]
+assembler.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+drill = Part('Drill',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+drill.steel_plates = fileContents[0]
+drill.interior_plates = fileContents[1]
+drill.displays = fileContents[2]
+drill.computers = fileContents[3]
+drill.motors = fileContents[4]
+drill.small_steel_tubes = fileContents[5]
+drill.large_steel_tubes = fileContents[6]
+drill.metal_grids = fileContents[7]
+drill.construction_components = fileContents[8]
+drill.super_conducters = fileContents[9]
+drill.power_cells = fileContents[10]
+drill.detector_components = fileContents[11]
+drill.gravity_components = fileContents[12]
+drill.bulletproof_glass = fileContents[13]
+drill.girders = fileContents[14]
+drill.medical_components = fileContents[15]
+drill.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+piston = Part('Piston',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+piston.steel_plates = fileContents[0]
+piston.interior_plates = fileContents[1]
+piston.displays = fileContents[2]
+piston.computers = fileContents[3]
+piston.motors = fileContents[4]
+piston.small_steel_tubes = fileContents[5]
+piston.large_steel_tubes = fileContents[6]
+piston.metal_grids = fileContents[7]
+piston.construction_components = fileContents[8]
+piston.super_conducters = fileContents[9]
+piston.power_cells = fileContents[10]
+piston.detector_components = fileContents[11]
+piston.gravity_components = fileContents[12]
+piston.bulletproof_glass = fileContents[13]
+piston.girders = fileContents[14]
+piston.medical_components = fileContents[15]
+piston.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+piston_part = Part('Piston Part',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+piston_part.steel_plates = fileContents[0]
+piston_part.interior_plates = fileContents[1]
+piston_part.displays = fileContents[2]
+piston_part.computers = fileContents[3]
+piston_part.motors = fileContents[4]
+piston_part.small_steel_tubes = fileContents[5]
+piston_part.large_steel_tubes = fileContents[6]
+piston_part.metal_grids = fileContents[7]
+piston_part.construction_components = fileContents[8]
+piston_part.super_conducters = fileContents[9]
+piston_part.power_cells = fileContents[10]
+piston_part.detector_components = fileContents[11]
+piston_part.gravity_components = fileContents[12]
+piston_part.bulletproof_glass = fileContents[13]
+piston_part.girders = fileContents[14]
+piston_part.medical_components = fileContents[15]
+piston_part.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+rotor = Part('Rotor',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+rotor.steel_plates = fileContents[0]
+rotor.interior_plates = fileContents[1]
+rotor.displays = fileContents[2]
+rotor.computers = fileContents[3]
+rotor.motors = fileContents[4]
+rotor.small_steel_tubes = fileContents[5]
+rotor.large_steel_tubes = fileContents[6]
+rotor.metal_grids = fileContents[7]
+rotor.construction_components = fileContents[8]
+rotor.super_conducters = fileContents[9]
+rotor.power_cells = fileContents[10]
+rotor.detector_components = fileContents[11]
+rotor.gravity_components = fileContents[12]
+rotor.bulletproof_glass = fileContents[13]
+rotor.girders = fileContents[14]
+rotor.medical_components = fileContents[15]
+rotor.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+rotor_head = Part('Rotor Head',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+rotor_head.steel_plates = fileContents[0]
+rotor_head.interior_plates = fileContents[1]
+rotor_head.displays = fileContents[2]
+rotor_head.computers = fileContents[3]
+rotor_head.motors = fileContents[4]
+rotor_head.small_steel_tubes = fileContents[5]
+rotor_head.large_steel_tubes = fileContents[6]
+rotor_head.metal_grids = fileContents[7]
+rotor_head.construction_components = fileContents[8]
+rotor_head.super_conducters = fileContents[9]
+rotor_head.power_cells = fileContents[10]
+rotor_head.detector_components = fileContents[11]
+rotor_head.gravity_components = fileContents[12]
+rotor_head.bulletproof_glass = fileContents[13]
+rotor_head.girders = fileContents[14]
+rotor_head.medical_components = fileContents[15]
+rotor_head.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+conveyor_tube = Part('Conveyor Tube',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+conveyor_tube.steel_plates = fileContents[0]
+conveyor_tube.interior_plates = fileContents[1]
+conveyor_tube.displays = fileContents[2]
+conveyor_tube.computers = fileContents[3]
+conveyor_tube.motors = fileContents[4]
+conveyor_tube.small_steel_tubes = fileContents[5]
+conveyor_tube.large_steel_tubes = fileContents[6]
+conveyor_tube.metal_grids = fileContents[7]
+conveyor_tube.construction_components = fileContents[8]
+conveyor_tube.super_conducters = fileContents[9]
+conveyor_tube.power_cells = fileContents[10]
+conveyor_tube.detector_components = fileContents[11]
+conveyor_tube.gravity_components = fileContents[12]
+conveyor_tube.bulletproof_glass = fileContents[13]
+conveyor_tube.girders = fileContents[14]
+conveyor_tube.medical_components = fileContents[15]
+conveyor_tube.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+yield_module = Part('Yield Module',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+yield_module.steel_plates = fileContents[0]
+yield_module.interior_plates = fileContents[1]
+yield_module.displays = fileContents[2]
+yield_module.computers = fileContents[3]
+yield_module.motors = fileContents[4]
+yield_module.small_steel_tubes = fileContents[5]
+yield_module.large_steel_tubes = fileContents[6]
+yield_module.metal_grids = fileContents[7]
+yield_module.construction_components = fileContents[8]
+yield_module.super_conducters = fileContents[9]
+yield_module.power_cells = fileContents[10]
+yield_module.detector_components = fileContents[11]
+yield_module.gravity_components = fileContents[12]
+yield_module.bulletproof_glass = fileContents[13]
+yield_module.girders = fileContents[14]
+yield_module.medical_components = fileContents[15]
+yield_module.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+speed_module = Part('Speed Module',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+speed_module.steel_plates = fileContents[0]
+speed_module.interior_plates = fileContents[1]
+speed_module.displays = fileContents[2]
+speed_module.computers = fileContents[3]
+speed_module.motors = fileContents[4]
+speed_module.small_steel_tubes = fileContents[5]
+speed_module.large_steel_tubes = fileContents[6]
+speed_module.metal_grids = fileContents[7]
+speed_module.construction_components = fileContents[8]
+speed_module.super_conducters = fileContents[9]
+speed_module.power_cells = fileContents[10]
+speed_module.detector_components = fileContents[11]
+speed_module.gravity_components = fileContents[12]
+speed_module.bulletproof_glass = fileContents[13]
+speed_module.girders = fileContents[14]
+speed_module.medical_components = fileContents[15]
+speed_module.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+industrial_cockpit = Part('Industrial Cockpit',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+industrial_cockpit.steel_plates = fileContents[0]
+industrial_cockpit.interior_plates = fileContents[1]
+industrial_cockpit.displays = fileContents[2]
+industrial_cockpit.computers = fileContents[3]
+industrial_cockpit.motors = fileContents[4]
+industrial_cockpit.small_steel_tubes = fileContents[5]
+industrial_cockpit.large_steel_tubes = fileContents[6]
+industrial_cockpit.metal_grids = fileContents[7]
+industrial_cockpit.construction_components = fileContents[8]
+industrial_cockpit.super_conducters = fileContents[9]
+industrial_cockpit.power_cells = fileContents[10]
+industrial_cockpit.detector_components = fileContents[11]
+industrial_cockpit.gravity_components = fileContents[12]
+industrial_cockpit.bulletproof_glass = fileContents[13]
+industrial_cockpit.girders = fileContents[14]
+industrial_cockpit.medical_components = fileContents[15]
+industrial_cockpit.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+gyroscope = Part('Gyroscope',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+gyroscope.steel_plates = fileContents[0]
+gyroscope.interior_plates = fileContents[1]
+gyroscope.displays = fileContents[2]
+gyroscope.computers = fileContents[3]
+gyroscope.motors = fileContents[4]
+gyroscope.small_steel_tubes = fileContents[5]
+gyroscope.large_steel_tubes = fileContents[6]
+gyroscope.metal_grids = fileContents[7]
+gyroscope.construction_components = fileContents[8]
+gyroscope.super_conducters = fileContents[9]
+gyroscope.power_cells = fileContents[10]
+gyroscope.detector_components = fileContents[11]
+gyroscope.gravity_components = fileContents[12]
+gyroscope.bulletproof_glass = fileContents[13]
+gyroscope.girders = fileContents[14]
+gyroscope.medical_components = fileContents[15]
+gyroscope.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+conveyor_junction = Part('Conveyor Junction',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+conveyor_junction.steel_plates = fileContents[0]
+conveyor_junction.interior_plates = fileContents[1]
+conveyor_junction.displays = fileContents[2]
+conveyor_junction.computers = fileContents[3]
+conveyor_junction.motors = fileContents[4]
+conveyor_junction.small_steel_tubes = fileContents[5]
+conveyor_junction.large_steel_tubes = fileContents[6]
+conveyor_junction.metal_grids = fileContents[7]
+conveyor_junction.construction_components = fileContents[8]
+conveyor_junction.super_conducters = fileContents[9]
+conveyor_junction.power_cells = fileContents[10]
+conveyor_junction.detector_components = fileContents[11]
+conveyor_junction.gravity_components = fileContents[12]
+conveyor_junction.bulletproof_glass = fileContents[13]
+conveyor_junction.girders = fileContents[14]
+conveyor_junction.medical_components = fileContents[15]
+conveyor_junction.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+spotlight = Part('SpotLight',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+spotlight.steel_plates = fileContents[0]
+spotlight.interior_plates = fileContents[1]
+spotlight.displays = fileContents[2]
+spotlight.computers = fileContents[3]
+spotlight.motors = fileContents[4]
+spotlight.small_steel_tubes = fileContents[5]
+spotlight.large_steel_tubes = fileContents[6]
+spotlight.metal_grids = fileContents[7]
+spotlight.construction_components = fileContents[8]
+spotlight.super_conducters = fileContents[9]
+spotlight.power_cells = fileContents[10]
+spotlight.detector_components = fileContents[11]
+spotlight.gravity_components = fileContents[12]
+spotlight.bulletproof_glass = fileContents[13]
+spotlight.girders = fileContents[14]
+spotlight.medical_components = fileContents[15]
+spotlight.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+o2tank = Part('O2 Tank',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+o2tank.steel_plates = fileContents[0]
+o2tank.interior_plates = fileContents[1]
+o2tank.displays = fileContents[2]
+o2tank.computers = fileContents[3]
+o2tank.motors = fileContents[4]
+o2tank.small_steel_tubes = fileContents[5]
+o2tank.large_steel_tubes = fileContents[6]
+o2tank.metal_grids = fileContents[7]
+o2tank.construction_components = fileContents[8]
+o2tank.super_conducters = fileContents[9]
+o2tank.power_cells = fileContents[10]
+o2tank.detector_components = fileContents[11]
+o2tank.gravity_components = fileContents[12]
+o2tank.bulletproof_glass = fileContents[13]
+o2tank.girders = fileContents[14]
+o2tank.medical_components = fileContents[15]
+o2tank.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+o2farm = Part('O2 Farm',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+o2farm.steel_plates = fileContents[0]
+o2farm.interior_plates = fileContents[1]
+o2farm.displays = fileContents[2]
+o2farm.computers = fileContents[3]
+o2farm.motors = fileContents[4]
+o2farm.small_steel_tubes = fileContents[5]
+o2farm.large_steel_tubes = fileContents[6]
+o2farm.metal_grids = fileContents[7]
+o2farm.construction_components = fileContents[8]
+o2farm.super_conducters = fileContents[9]
+o2farm.power_cells = fileContents[10]
+o2farm.detector_components = fileContents[11]
+o2farm.gravity_components = fileContents[12]
+o2farm.bulletproof_glass = fileContents[13]
+o2farm.girders = fileContents[14]
+o2farm.medical_components = fileContents[15]
+o2farm.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+solar_panel = Part('Solar Panel',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+solar_panel.steel_plates = fileContents[0]
+solar_panel.interior_plates = fileContents[1]
+solar_panel.displays = fileContents[2]
+solar_panel.computers = fileContents[3]
+solar_panel.motors = fileContents[4]
+solar_panel.small_steel_tubes = fileContents[5]
+solar_panel.large_steel_tubes = fileContents[6]
+solar_panel.metal_grids = fileContents[7]
+solar_panel.construction_components = fileContents[8]
+solar_panel.super_conducters = fileContents[9]
+solar_panel.power_cells = fileContents[10]
+solar_panel.detector_components = fileContents[11]
+solar_panel.gravity_components = fileContents[12]
+solar_panel.bulletproof_glass = fileContents[13]
+solar_panel.girders = fileContents[14]
+solar_panel.medical_components = fileContents[15]
+solar_panel.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+landing_gear = Part('Landing Gear',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+landing_gear.steel_plates = fileContents[0]
+landing_gear.interior_plates = fileContents[1]
+landing_gear.displays = fileContents[2]
+landing_gear.computers = fileContents[3]
+landing_gear.motors = fileContents[4]
+landing_gear.small_steel_tubes = fileContents[5]
+landing_gear.large_steel_tubes = fileContents[6]
+landing_gear.metal_grids = fileContents[7]
+landing_gear.construction_components = fileContents[8]
+landing_gear.super_conducters = fileContents[9]
+landing_gear.power_cells = fileContents[10]
+landing_gear.detector_components = fileContents[11]
+landing_gear.gravity_components = fileContents[12]
+landing_gear.bulletproof_glass = fileContents[13]
+landing_gear.girders = fileContents[14]
+landing_gear.medical_components = fileContents[15]
+landing_gear.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+gun_turret = Part('Gun Turret',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+gun_turret.steel_plates = fileContents[0]
+gun_turret.interior_plates = fileContents[1]
+gun_turret.displays = fileContents[2]
+gun_turret.computers = fileContents[3]
+gun_turret.motors = fileContents[4]
+gun_turret.small_steel_tubes = fileContents[5]
+gun_turret.large_steel_tubes = fileContents[6]
+gun_turret.metal_grids = fileContents[7]
+gun_turret.construction_components = fileContents[8]
+gun_turret.super_conducters = fileContents[9]
+gun_turret.power_cells = fileContents[10]
+gun_turret.detector_components = fileContents[11]
+gun_turret.gravity_components = fileContents[12]
+gun_turret.bulletproof_glass = fileContents[13]
+gun_turret.girders = fileContents[14]
+gun_turret.medical_components = fileContents[15]
+gun_turret.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+battery = Part('Battery',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+battery.steel_plates = fileContents[0]
+battery.interior_plates = fileContents[1]
+battery.displays = fileContents[2]
+battery.computers = fileContents[3]
+battery.motors = fileContents[4]
+battery.small_steel_tubes = fileContents[5]
+battery.large_steel_tubes = fileContents[6]
+battery.metal_grids = fileContents[7]
+battery.construction_components = fileContents[8]
+battery.super_conducters = fileContents[9]
+battery.power_cells = fileContents[10]
+battery.detector_components = fileContents[11]
+battery.gravity_components = fileContents[12]
+battery.bulletproof_glass = fileContents[13]
+battery.girders = fileContents[14]
+battery.medical_components = fileContents[15]
+battery.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+medical_bay = Part('Medical Bay',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+medical_bay.steel_plates = fileContents[0]
+medical_bay.interior_plates = fileContents[1]
+medical_bay.displays = fileContents[2]
+medical_bay.computers = fileContents[3]
+medical_bay.motors = fileContents[4]
+medical_bay.small_steel_tubes = fileContents[5]
+medical_bay.large_steel_tubes = fileContents[6]
+medical_bay.metal_grids = fileContents[7]
+medical_bay.construction_components = fileContents[8]
+medical_bay.super_conducters = fileContents[9]
+medical_bay.power_cells = fileContents[10]
+medical_bay.detector_components = fileContents[11]
+medical_bay.gravity_components = fileContents[12]
+medical_bay.bulletproof_glass = fileContents[13]
+medical_bay.girders = fileContents[14]
+medical_bay.medical_components = fileContents[15]
+medical_bay.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+connector = Part('Connector',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+connector.steel_plates = fileContents[0]
+connector.interior_plates = fileContents[1]
+connector.displays = fileContents[2]
+connector.computers = fileContents[3]
+connector.motors = fileContents[4]
+connector.small_steel_tubes = fileContents[5]
+connector.large_steel_tubes = fileContents[6]
+connector.metal_grids = fileContents[7]
+connector.construction_components = fileContents[8]
+connector.super_conducters = fileContents[9]
+connector.power_cells = fileContents[10]
+connector.detector_components = fileContents[11]
+connector.gravity_components = fileContents[12]
+connector.bulletproof_glass = fileContents[13]
+connector.girders = fileContents[14]
+connector.medical_components = fileContents[15]
+connector.solar_cells = fileContents[16]
+fileContents  = fileContents[17:]
+
+
+
+runningTotal = Part('Total Components Needed',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+#for x in range (1, blocks):
+    #pass
+    #rstrip input of \n
+    #fileContents[x] = fileContents[x].rstrip("\n")
+    #read in from setext first argument to name class
+    #className = fileContents[x]
+    #accumulate x so that we can read in the arguments for new class
+    #x = x + 1
+    #rstrip input of \n
+    #fileContents[x] = fileContents[x].rstrip("\n")
+    #int(fileContents[x])
+    #create class instance of block at x with class name className
+    #read arguments on line for that class 
+    #className = Part(fileContents[x])
+    #className.printFunc()
+    #continue loop
+
+
+
+
+#components calculator part 
+#--------------------------------
+#ask user for number of blocks of each type
+block_list_amounts = []
+for x in range(29):
+    print("How many ", block_list[x],'?')
+    response = pyip.inputNum()
+    block_list_amounts.append(response)
+    
+print (block_list_amounts)    
+sefile.close()
+sefile = open('C:\\Users\\garci\\setext.txt', 'r')
+fileContents = sefile.readlines()
+
+for x in range(1,494)
+    block_list_amounts[0] = block_list_amounts[18] * int(fileContents[x]) 
+    if x/17 == 1
+        block_list_amounts = block_list_amounts * x 
+    
+    #go thru filecontents at intervals of 17 and those are the comps e.g. for all steel plates needed just do
+    #for x in range (1,500,17):
+        #add fileContents[x] to runningSteelplateTotal * num of blocks needed
+    #keep running components total across for loop and add it all together for a final count 
+
+#print out final count of components for final process  
