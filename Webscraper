@@ -1,0 +1,42 @@
+import time 
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
+
+#possible implementation could be using pyinputplus
+#to make user type what blocks they are using for ship
+#to avoid scraping for blocks we wont use
+
+url = 'https://spaceengineers.fandom.com/wiki/Category:Blocks'
+
+driver = webdriver.Chrome()
+driver.get(url) 
+
+driver.find_element(By.XPATH,'//*[@id="WikiaBarWrapper"]/div/a[4]').click()
+#driver.find_element(By.XPATH,'/html/body/div[5]/div[1]/div/a[4]').click()
+#Alert(driver).dismiss()
+
+elementToGrab = driver.find_element(By.LINK_TEXT,'Large Reactor')
+elementToGrab.click()
+
+
+#put all of one block into one line in arg format
+#first line to write should be number of blocks, by itself
+#should then go thru hard coded list of elementToGrab with every single block and begin script to retrieve values in arg format
+#need to make sure that className argument has underscores for spaces
+
+sefile = open('C:\\Users\\garci\\setext.txt', 'w')
+sefile.write('1\n')
+sefile.close()
+sefile = open('C:\\Users\\garci\\setext.txt', 'a')
+sefile.write('light_Armor_Block\n')
+sefile.write(25'\n')
+for x in range(24):
+    sefile.write(0'\n')
+
+
+
+
+time.sleep(15)
+driver.quit()
